@@ -46,7 +46,7 @@ This project helped me understand **how Jenkins executes jobs internally** and h
 | Jenkins | CI/CD Automation |
 | GitHub | Source Code Management |
 | Nginx | Web Server |
-| Linux (Ubuntu) | Server OS |
+| Ubuntu | Server OS |
 | SSH / SCP | Secure Communication |
 | HTML | Static Website |
 | AWS EC2 | Cloud Infrastructure |
@@ -111,7 +111,7 @@ graph TD
 
 ### 2️⃣ Web Server :-
 
-- OS: Ubuntu Linux
+- OS: Ubuntu 
 - Web Server: Nginx
 - Port: 80 (HTTP)
   
@@ -158,10 +158,21 @@ https://github.com/Prasad-bhoite19/My-Web-Deploy.git
 ```
 
 - Build Step: ***Execute Shell***
+## 🔑 Prerequisites :-
+
+Copy your SSH private key (.pem file) from your local laptop to the Jenkins server. This enables Jenkins to securely connect to the Web Server for deployment.
+
+- #### How to copy the SSH key: 
+> Run this command on your local laptop
+```
+scp -i /path/to/local/private_key.pem /path/to/local/private_key.pem ubuntu@<JENKINS_SERVER_IP>:/home/ubuntu/
+```
 
 ## ⚙️ Jenkins Execute Shell Script :-
 
 The following **Execute Shell** script is used in the **Jenkins Freestyle Job** to automate the deployment of a static website from the Jenkins server to a remote Web Server using **SSH and SCP**.
+
+> **Important:** Ensure the SSH private key (`<your-pem-secret-key>`) is copied to the Jenkins server at `/home/ubuntu/`
 
 - #### Update package list on Jenkins server :-
 ```
